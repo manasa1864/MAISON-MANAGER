@@ -5,6 +5,38 @@ read and write the same tables, and actions on one side land on the other.
 
 ---
 
+## Companion repo: Maison (the guest app)
+
+**Repository:** <https://github.com/ishita-punjani/MAISON.git>
+
+**Maison** is the guest-facing half of this system — a fine-dining restaurant
+app meant to be used on a diner's phone before, during and after a visit. This
+repo (**Manager**) is the staff-facing half. The two are separate codebases and
+separate deployments that share one Supabase database.
+
+**What Maison does for guests**
+
+- Browse the menu by course, with trending, chef-recommended and under-the-radar dishes
+- Pick a mood (celebratory, intimate, business…) that shapes recommendations, drink pairings and notification tone
+- Build a cart, apply promo codes, pay and check out
+- Follow a live, seven-step order tracking timeline
+- Book a table from a floor plan, or join the walk-in queue and watch their position update
+- Get AI-assisted "Guided Selection" recommendations (optionally powered by Groq, with a built-in fallback)
+- Manage a profile with dietary preferences, allergies and payment methods
+
+**Why it lives alongside Manager**
+
+Maison is where orders, bookings and queue joins *originate*; Manager is where
+staff *act* on them. Accepting an order, seating a booking or taking a dish off
+the menu in Manager shows up instantly in the guest's app, and everything a
+guest does appears in Manager. See [What connects to what](#what-connects-to-what)
+below for the full list.
+
+**Tech stack:** React 19, TypeScript, Vite, Tailwind CSS v4, Supabase
+(Postgres, RLS, Auth, Realtime), hosted on Vercel.
+
+---
+
 ## Setup — three steps
 
 ### 1. Run the SQL
